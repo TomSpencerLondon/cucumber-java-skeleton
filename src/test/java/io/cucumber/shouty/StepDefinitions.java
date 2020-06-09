@@ -17,13 +17,12 @@ public class StepDefinitions {
   public void lucy_is_located_metres_from_Sean(Integer distance) {
     lucy = new Person();
     sean = new Person();
-    lucy.moveTo(distance);
-
-
+    lucy.moveTo(distance, sean);
   }
 
   @When("Sean shouts {string}")
   public void sean_shouts(String message) {
+    messageFromSean = message;
     sean.shout(message);
   }
 
