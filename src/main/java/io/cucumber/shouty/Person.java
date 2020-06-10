@@ -1,17 +1,20 @@
 package io.cucumber.shouty;
 
-import static java.util.Arrays.asList;
-
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Person {
-  private List<String> result;
+  private List<String> shouts;
   private List<Person> people = new ArrayList<>();
 
   public Person() {
-    this.result = new ArrayList<>();
+    this.shouts = new ArrayList<>();
+  }
+
+  public List<String> getShouts() {
+    return shouts;
   }
 
   public void moveTo(Integer distance, Person shouter) {
@@ -21,18 +24,16 @@ public class Person {
   }
 
   public void shout(String message) {
-    result.add(message);
+    shouts.add(message);
   }
 
   public List<String> getMessagesHeard() {
-    List<String> msgs = new ArrayList<>();
-
     for (Person p : people) {
-      for (String r : p.result) {
-        result.add(r);
+      for (String r : p.shouts) {
+        shouts.add(r);
       }
     }
 
-    return result;
+    return shouts;
   }
 }
